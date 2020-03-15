@@ -11,7 +11,7 @@
 
         $relativeClass = substr($class, $len);
 
-        $file = str_replace("/", "\\", $baseDir) . $relativeClass . '.php';
+        $file = str_replace("\\", "/", $baseDir) . str_replace("\\", "/", $relativeClass) . '.php';
 
         if(file_exists($file)) {
             require $file;

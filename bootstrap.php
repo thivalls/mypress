@@ -1,13 +1,12 @@
 <?php
 
-    use src\Connection\DB;
+use src\Connection\DB;
+use src\Models\Model;
+use src\Models\User;
 
-    require_once(__DIR__ . "/src/autoload.php");
+require_once(__DIR__ . "/src/autoload.php");
 
-    /** 
-     * Get connection instance
-     * @var src\Connection\DB $conn 
-     */
-    $users = DB::getInstance()->query("select * from users")->fetchAll();
+    $user = new User;
 
-    var_dump($users);
+    var_dump($user->all(5, 5, "id, first_name, email"));
+    

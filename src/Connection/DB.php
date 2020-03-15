@@ -7,9 +7,9 @@
 
     class DB {
         private const DBHOST = "localhost";
-        private const DBPORT = 3306;
+        private const DBPORT = 8889;
         private const DBUSER = "root";
-        private const DBPASS = "";
+        private const DBPASS = "root";
         private const DBNAME = "pdo";
 
         private const OPTIONS = [
