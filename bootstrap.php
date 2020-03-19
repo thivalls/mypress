@@ -5,16 +5,6 @@ use src\Models\User;
 
 require_once(__DIR__ . "/src/autoload.php");
 
-    $model = new User;
-
-    $user = $model->init(
-        "Junior", 
-        "Andrade", 
-        "cursoddees22@upinside.com", 
-        54545454
-    );
+    // init application here
     
-    $user->save();
-
-    var_dump($user);
     

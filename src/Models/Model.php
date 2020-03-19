@@ -78,12 +78,33 @@ abstract class Model {
             }
         }
 
-        protected function update() {
-
+        protected function update(string $entity, array $data, string $terms, string $params = null): ?int {
+            try {
+                $set = [];
+                foreach (array_keys($data) as $column) {
+                    $set[] = "{$column} = :{$column}";
+                }
+                $set = implode(", ", $set);
+                $stmt = DB::getInstance()->prepare("UPDATE {$entity} SET {$set} WHERE {$terms}");
+                parse_str($params, $params);
+                $stmt->execute($this->filter(array_merge($data, $params)));
+                return ($stmt->rowCount() ?? 1);
+            } catch (\PDOException $e) {
+                $this->fail = $e;
+                return null;
+            }
         }
 
-        protected function delete() {
-
+        protected function delete(string $entity, string $terms, string $params): ?int {
+            try {
+                $stmt = DB::getInstance()->prepare("DELETE FROM {$entity} WHERE {$terms}");
+                parse_str($params, $params);
+                $stmt->execute($this->filter($params));
+                return ($stmt->rowCount() ?? 1);
+            } catch (\PDOException $e) {
+                $this->fail = $e;
+                return null;
+            }
         }
 
         protected function safe(): ?array {
