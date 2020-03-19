@@ -2,6 +2,8 @@
 
 namespace src\Models;
 
+use src\Core\Model;
+
 class User extends Model
 {
     /** @var array $safe */

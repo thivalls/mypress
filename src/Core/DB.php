@@ -1,6 +1,6 @@
 <?php
 
-    namespace src\Connection;
+    namespace src\Core;
 
     use \PDO;
     use \PDOException;

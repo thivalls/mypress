@@ -1,10 +1,17 @@
 <?php
-use src\Connection\DB;
-use src\Models\Model;
+
 use src\Models\User;
 
-require_once(__DIR__ . "/src/autoload.php");
+require(__DIR__ . "/src/Support/Config.php");
+require(__DIR__ . "/src/autoload.php");
 
     // init application here
+    $model = new User;
+    
+    $user = $model->load(44);
+
+    if($user) {
+        var_dump($user);
+    }
     
     
