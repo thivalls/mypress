@@ -1,0 +1,26 @@
+{
+    "name": "thivalls/mypress",
+    "description": "My own CMS",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Thiago Valls Bertolino",
+            "email": "olavalls@gmail.com",
+            "homepage": "https://agenciatw.com.br",
+            "role": "Development"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        },
+        "files": [
+            "src/Support/Config.php",
+            "src/Support/Helpers.php"
+        ]
+    },
+    "require": {}
+}
