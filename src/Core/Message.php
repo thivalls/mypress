@@ -46,7 +46,7 @@
         }
 
         public function render(): string {
-            return "<div class'". CONF_MESSAGE_CLASS ." {$this->getType()}'>{$this->getText()}</div>";
+            return "<div class='". CONF_MESSAGE_CLASS ." {$this->getType()}'>{$this->getText()}</div>";
         }
 
         public function json() {

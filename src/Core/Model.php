@@ -143,7 +143,7 @@ abstract class Model
             if(empty($data[$field])) {
                 return false;
             }
-            return true;
         }
+        return true;
     }
 }
