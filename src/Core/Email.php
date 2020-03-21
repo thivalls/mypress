@@ -47,6 +47,11 @@ class Email
         return $this;
     }
 
+    public function attach(string $filePath, string $fileName): Email {
+        $this->data->attach[$filePath] = $fileName;
+        return $this;
+    }
+
     public function send(string $fromEmail = CONF_MAIL_SENDER["address"], string $fromName = CONF_MAIL_SENDER["name"]): bool
     {
         if (empty($this->data)) {
@@ -70,6 +75,12 @@ class Email
             $this->mail->msgHTML($this->data->message);
             $this->mail->addAddress($this->data->toEmail, $this->data->toName);
             $this->mail->setFrom($fromEmail, $fromName);
+
+            if(!empty($this->data->attach)) {
+                foreach ($this->data->attach as $path => $name) {
+                    $this->mail->addAttachment($path, $name);
+                }
+            }
 
             $this->mail->send();
             return true;

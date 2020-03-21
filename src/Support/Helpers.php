@@ -96,8 +96,12 @@ function str_slug(string $string): string
     $formats = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜüÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿRr"!@#$%&*()_-+={[}]/?;:.,\\\'<>°ºª';
     $replace = 'aaaaaaaceeeeiiiidnoooooouuuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr                                 ';
 
-    $slug = str_replace(["-----", "----", "---", "--"], "-",
-        str_replace(" ", "-",
+    $slug = str_replace(
+        ["-----", "----", "---", "--"],
+        "-",
+        str_replace(
+            " ",
+            "-",
             trim(strtr(utf8_decode($string), utf8_decode($formats), $replace))
         )
     );
@@ -111,7 +115,9 @@ function str_slug(string $string): string
 function str_studly_case(string $string): string
 {
     $string = str_slug($string);
-    $studlyCase = str_replace(" ", "",
+    $studlyCase = str_replace(
+        " ",
+        "",
         mb_convert_case(str_replace("-", " ", $string), MB_CASE_TITLE)
     );
 
@@ -175,7 +181,7 @@ function str_limit_chars(string $string, int $limit, string $pointer = "..."): s
 
 /**
  * ##################
- * ###   STRING   ###
+ * ###   URL   ###
  * ##################
  */
 
@@ -205,13 +211,32 @@ function redirect(string $url): void
     exit;
 }
 
+/**
+ * ##################
+ * ###   DATE   ###
+ * ##################
+ */
+
+function date_fmt(string $date = "now", string $format = "d/m/Y H\hi"): string
+{
+    return (new DateTime($date))->format($format);
+}
+
+function date_fmt_br(string $date = "now"): string
+{
+    return (new DateTime($date))->format(CONF_DATE_BR);
+}
+
+function date_fmt_app(string $date = "now"): string
+{
+    return (new DateTime($date))->format(CONF_DATE_APP);
+}
 
 /**
  * ################
  * ###   CORE   ###
  * ################
  */
-
 
 /**
  * @return PDO
