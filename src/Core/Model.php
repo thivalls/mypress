@@ -1,8 +1,9 @@
 <?php
 namespace src\Core;
 
-use src\Core\DB;
 use stdClass;
+use src\Core\DB;
+use src\Core\Message;
 
 abstract class Model
 {
@@ -12,8 +13,13 @@ abstract class Model
     /** @var \PDOException $fail */
     protected $fail;
 
-    /** @var string|null $message */
+    /** @var Message|null $message */
     protected $message;
+
+    public function __construct()
+    {
+        $this->message = new Message;
+    }
 
     public function __set($name, $value)
     {
@@ -45,8 +51,8 @@ abstract class Model
         return $this->fail;
     }
 
-    /** @return string|null $fail */
-    protected function message(): ?string
+    /** @return Message|null $message */
+    protected function message(): ?Message
     {
         return $this->message;
     }
@@ -129,5 +135,15 @@ abstract class Model
             $filter[$key] = (is_null($value) ? null : filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS));
         }
         return $filter;
+    }
+
+    protected function required(): bool {
+        $data = (array)$this->data();
+        foreach(static::$required as $field) {
+            if(empty($data[$field])) {
+                return false;
+            }
+            return true;
+        }
     }
 }
