@@ -22,5 +22,7 @@
             "src/Support/Helpers.php"
         ]
     },
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "~6.0"
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DATABASE
  */
@@ -41,3 +42,21 @@ define("CONF_MESSAGE_INFO", "info");
 define("CONF_MESSAGE_SUCCESS", "success");
 define("CONF_MESSAGE_WARNING", "warning");
 define("CONF_MESSAGE_ERROR", "error");
+
+/**
+ * EMAIL
+ */
+
+// AUTH
+define("CONF_MAIL_HOST", "smtp.mailtrap.io");
+define("CONF_MAIL_PORT", "587");
+define("CONF_MAIL_USER", "b2d753f984d0fb");
+define("CONF_MAIL_PASSWORD", "98097feb0729d2");
+define("CONF_MAIL_SENDER", ["name" => "Thiago", "address" => "olavalls@gmail.com"]);
+
+// SETUP
+define("CONF_MAIL_OPTION_LANG", "br");
+define("CONF_MAIL_OPTION_HTML", true);
+define("CONF_MAIL_OPTION_AUTH", true);
+define("CONF_MAIL_OPTION_SECURE", 'tls');
+define("CONF_MAIL_OPTION_CHARSET", 'utf-8');
