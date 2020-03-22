@@ -4,8 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a687f3fadeb212c876938b61a6feca4",
+    "content-hash": "7bb46b8588d26c05d65de2bf986a4043",
     "packages": [
+        {
+            "name": "coffeecode/cropper",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/robsonvleite/cropper.git",
+                "reference": "91c56ebaf9238547f7de3ab681e66ff427087a04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/robsonvleite/cropper/zipball/91c56ebaf9238547f7de3ab681e66ff427087a04",
+                "reference": "91c56ebaf9238547f7de3ab681e66ff427087a04",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-gd": "*",
+                "ext-mbstring": "*",
+                "php": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CoffeeCode\\Cropper\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robson V. Leite",
+                    "email": "cursos@upinside.com.br",
+                    "role": "Developer"
+                }
+            ],
+            "description": "It is a easy and simple PHP image cropper and cache thumb manager",
+            "homepage": "http://www.upinside.com.br",
+            "keywords": [
+                "Coffeecode",
+                "image cache",
+                "image crop",
+                "image thumb",
+                "upload"
+            ],
+            "time": "2019-10-29T15:57:12+00:00"
+        },
         {
             "name": "coffeecode/uploader",
             "version": "1.0.8",
