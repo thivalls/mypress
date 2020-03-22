@@ -44,6 +44,12 @@ define("CONF_MESSAGE_WARNING", "warning");
 define("CONF_MESSAGE_ERROR", "error");
 
 /**
+ * VIEW
+ */
+define("CONF_VIEW_PATH", __DIR__ . "/../../resources/views");
+define("CONF_VIEW_EXT", "php");
+
+/**
  * EMAIL
  */
 
